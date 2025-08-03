@@ -1,5 +1,14 @@
 components:
-- components: []
+- components:
+  - components:
+    - layout_properties: {grid_position: 'ZBDZIQ,AJMVIT'}
+      name: label_1
+      properties: {text: Hello}
+      type: Label
+    layout_properties: {grid_position: 'SRFHAV,TEUSTQ'}
+    name: outlined_card_1
+    properties: {role: outlined-card}
+    type: ColumnPanel
   layout_properties: {slot: default}
   name: content_panel
   properties: {col_widths: '{}'}
