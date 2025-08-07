@@ -1,6 +1,24 @@
 allow_embedding: false
+db_schema:
+  feedback:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: name
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: email
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      name: feedback
+      type: string
+    - admin_ui: {order: 3, width: 200}
+      name: created
+      type: datetime
+    server: full
+    title: feedback
 dependencies: []
-metadata: {description: 'This is Sewee, a alarm clock for everyone', title: L2DGT SEWEE app develpment-Jerry}
+metadata: {description: 'This is Sewee, a alarm clock for everyone', logo_img: 'asset:image-Photoroom.png', title: L2DGT SEWEE app develpment-Jerry}
 name: SEWEE
 package_name: SEWEE
 renamed: true
