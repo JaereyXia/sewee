@@ -11,3 +11,19 @@ class Form1(Form1Template):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def submit_button_click(self, **event_args):
+    name = self.name_box.text # Set 'name' to the text in the 'name_box'
+    email = self.email_box.text # Set 'email' to the text in the 'email_box'
+    feedback = self.feedback_box.text # Call your 'add_feedback' server function
+    # pass in name, email and feedback as arguments
+    anvil.server.call('add_feedback', name, email, feedback) # Set 'feedback' to the text in the 'feedback_box'
+    Notification("Feedback submitted!").show() # Show a popup that says 'Feedback submitted!'
+    self.clear_inputs() # Call your 'clear_inputs' method to clear the boxes
+
+  def clear_inputs(self):
+    # Clear our three text boxes
+    self.name_box.text = ""
+    self.email_box.text = ""
+    self.feedback_box.text = ""
+

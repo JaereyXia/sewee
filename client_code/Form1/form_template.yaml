@@ -29,7 +29,8 @@ components:
       name: feedback_box
       properties: {}
       type: TextBox
-    - layout_properties: {grid_position: 'TYIPYQ,ZFWMLS'}
+    - event_bindings: {click: submit_button_click}
+      layout_properties: {grid_position: 'TYIPYQ,ZFWMLS'}
       name: submit_button
       properties: {role: filled-button, text: SUBMIT}
       type: Button
