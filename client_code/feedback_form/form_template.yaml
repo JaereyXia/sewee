@@ -52,6 +52,6 @@ components:
   properties: {}
   type: FlowPanel
 container:
-  properties: {html: '@theme:standard-page.html'}
+  properties: {background: '#013026', html: '@theme:standard-page.html'}
   type: HtmlTemplate
 is_package: true
