@@ -27,3 +27,6 @@ class feedback_form(feedback_formTemplate):
     self.email_box.text = ""
     self.feedback_box.text = ""
 
+  def home_button_click(self, **event_args):
+    # If the users click this button, it will lead him/her back to the home page
+    open_form('feedback_form')
