@@ -1,11 +1,13 @@
 unique_ids:
   assets:
     image-Photoroom.png: '1754533261074311372401342.3733'
+    sewee_logo.png: '1755465143256697573757770.8627'
     standard-page.html: IUEZV7IKLWL6XZVB53WDD7VTW54H6WU2
     theme.css: JQMM52PTSWB3R5Q2PDZPKQ7LQPQ6BZDA
   forms:
     feedback_form: KJP7FU4J3R75JLK2LA5FPH7P5BZUOF5O
     home_page: '1755136522199969961984601.8981'
+    loading_page: '1755465047067864516457775.891'
   modules: {}
   scripts: {}
   server_modules:
