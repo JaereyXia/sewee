@@ -52,6 +52,7 @@ components:
   properties: {}
   type: FlowPanel
 container:
+  data_bindings: []
   properties: {background: '#013026', html: '@theme:standard-page.html'}
   type: HtmlTemplate
 is_package: true
