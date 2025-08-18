@@ -12,3 +12,7 @@ class clock_page(clock_pageTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def button_2_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.role()

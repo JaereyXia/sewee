@@ -1,9 +1,90 @@
 components:
 - components:
-  - layout_properties: {grid_position: 'YIERYE,CZGMLZ'}
-    name: label_1
-    properties: {text: Time}
-    type: Label
+  - components:
+    - layout_properties: {grid_position: 'DAEJNS,ISDEBJ'}
+      name: label_1
+      properties: {text: 'Time:'}
+      type: Label
+    - layout_properties: {grid_position: 'DAEJNS,GVGAVY'}
+      name: button_1
+      properties: {align: right, role: elevated-button, text: AM}
+      type: Button
+    - data_bindings: []
+      event_bindings: {click: button_2_click}
+      layout_properties: {grid_position: 'DAEJNS,VSUIUJ'}
+      name: button_2
+      properties: {align: left, enabled: true, role: elevated-button, text: PM, underline: false, visible: true}
+      type: Button
+    - layout_properties: {grid_position: 'GLNQVB,JUZCDW'}
+      name: time_box_1
+      properties: {}
+      type: TextBox
+    - layout_properties: {grid_position: 'NILMKB,KGWJHI'}
+      name: label_2
+      properties: {text: 'Days:'}
+      type: Label
+    - layout_properties: {grid_position: 'FUDPTB,BUBGRK'}
+      name: button_3
+      properties: {text: M}
+      type: Button
+    - layout_properties: {grid_position: 'FUDPTB,VSBOEX'}
+      name: button_4
+      properties: {text: T}
+      type: Button
+    - layout_properties: {grid_position: 'FUDPTB,RDDOSY'}
+      name: button_5
+      properties: {text: W}
+      type: Button
+    - layout_properties: {grid_position: 'FUDPTB,LGCJLM'}
+      name: button_6
+      properties: {text: T}
+      type: Button
+    - layout_properties: {grid_position: 'FUDPTB,QKJUBX'}
+      name: button_7
+      properties: {text: F}
+      type: Button
+    - layout_properties: {grid_position: 'FUDPTB,YBCVKR'}
+      name: button_8
+      properties: {text: S}
+      type: Button
+    - layout_properties: {grid_position: 'FUDPTB,YOOTZV'}
+      name: button_9
+      properties: {text: S}
+      type: Button
+    - layout_properties: {grid_position: 'TOQUOE,GVGWHB'}
+      name: label_3
+      properties:
+        text: |
+          Cycle:
+      type: Label
+    - layout_properties: {grid_position: 'TOQUOE,QEVUMX'}
+      name: Write_cycle
+      properties: {text: write your cycle}
+      type: TextBox
+    - layout_properties: {grid_position: 'JAIEWX,KEHAKJ'}
+      name: button_10
+      properties: {text: '1'}
+      type: Button
+    - layout_properties: {grid_position: 'JAIEWX,RSWJXN'}
+      name: button_3_copy
+      properties: {text: '2'}
+      type: Button
+    - layout_properties: {grid_position: 'JAIEWX,LBFIXK'}
+      name: button_3_copy_2
+      properties: {text: '3'}
+      type: Button
+    - layout_properties: {grid_position: 'JAIEWX,ABEXZU'}
+      name: button_3_copy_3
+      properties: {text: '4'}
+      type: Button
+    - layout_properties: {grid_position: 'JAIEWX,GJYVZT'}
+      name: button_3_copy_4
+      properties: {text: '5'}
+      type: Button
+    layout_properties: {grid_position: 'XBLJPC,TNPFRJ'}
+    name: outlined_card_1
+    properties: {role: outlined-card}
+    type: ColumnPanel
   layout_properties: {slot: default}
   name: content_panel
   properties: {}
