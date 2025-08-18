@@ -13,12 +13,11 @@ class loading_page(loading_pageTemplate):
 
     # Any code you write here will run before the form opens.
 
-c = Timer(interval=1)# set a time for how long the user is gonna load for the app
+  def timer_1_tick(self, **event_args):
+    open_form('home_page')
+    
+  
 
-def inter(self, t):# set a value if the timer match the time then send user to home page
-  if t == 1:#if timer match
-    open_form('home_page')#send user to home page
 
-inter(c)
 
     
