@@ -18,8 +18,8 @@ class feedback_form(feedback_formTemplate):
     email = self.email_box.text # Set 'email' to the text in the 'email_box'
     feedback = self.feedback_box.text # Call your 'add_feedback' server function
     # pass in name, email and feedback as arguments
-    self.check_blank_feedback_form()
-    if self.key:
+    self.check_blank_feedback_form()# check if the feedback form is blank
+    if self.key:#if the key is true, then it means that the user fill the feedback form
       anvil.server.call('add_feedback', name, email, feedback) # Set 'feedback' to the text in the 'feedback_box'
       Notification("Feedback submitted!").show() # Show a popup that says 'Feedback submitted!'
     self.clear_inputs() # Call your 'clear_inputs' method to clear the boxes
@@ -32,7 +32,7 @@ class feedback_form(feedback_formTemplate):
       Notification("Can't send blank feedback form, please check the text box again").show()
     elif self.feedback_box.text == "":
       Notification("Can't send blank feedback form, please check the text box again").show()
-    else:#else if
+    else:#else the code will tell the key that the user has fill the feedback form and it's ready to be send.
       self.key = True
       
   def clear_inputs(self):
