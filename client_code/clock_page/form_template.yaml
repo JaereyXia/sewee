@@ -81,6 +81,10 @@ components:
       name: button_3_copy_4
       properties: {text: '5'}
       type: Button
+    - layout_properties: {grid_position: 'IMEVHO,QDGFZO'}
+      name: label_4
+      properties: {text: Alarm int}
+      type: Label
     layout_properties: {grid_position: 'XBLJPC,TNPFRJ'}
     name: outlined_card_1
     properties: {role: outlined-card}
