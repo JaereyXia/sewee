@@ -9,6 +9,7 @@ class feedback_form(feedback_formTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.key = False#If the key is true, it allow the email to be send, but if the key is false, it means the user send a blank feedback form
 
     # Any code you write here will run before the form opens.
 
@@ -17,10 +18,23 @@ class feedback_form(feedback_formTemplate):
     email = self.email_box.text # Set 'email' to the text in the 'email_box'
     feedback = self.feedback_box.text # Call your 'add_feedback' server function
     # pass in name, email and feedback as arguments
-    anvil.server.call('add_feedback', name, email, feedback) # Set 'feedback' to the text in the 'feedback_box'
-    Notification("Feedback submitted!").show() # Show a popup that says 'Feedback submitted!'
+    self.check_blank_feedback_form()
+    if self.key:
+      anvil.server.call('add_feedback', name, email, feedback) # Set 'feedback' to the text in the 'feedback_box'
+      Notification("Feedback submitted!").show() # Show a popup that says 'Feedback submitted!'
     self.clear_inputs() # Call your 'clear_inputs' method to clear the boxes
 
+  def check_blank_feedback_form(self):
+    #if any of the text box is blank, the code will send a notification to the user to tell him/her
+    if self.name_box.text == "":
+      Notification("Can't send blank feedback form, please check the text box again").show()
+    elif self.email_box.text == "":
+      Notification("Can't send blank feedback form, please check the text box again").show()
+    elif self.feedback_box.text == "":
+      Notification("Can't send blank feedback form, please check the text box again").show()
+    else:#else if
+      self.key = True
+      
   def clear_inputs(self):
     # Clear our three text boxes
     self.name_box.text = ""

@@ -2,89 +2,103 @@ components:
 - components:
   - components:
     - layout_properties: {grid_position: 'DAEJNS,ISDEBJ'}
-      name: label_1
+      name: time_label
       properties: {text: 'Time:'}
       type: Label
     - layout_properties: {grid_position: 'DAEJNS,GVGAVY'}
-      name: button_1
+      name: time_bottn_am
       properties: {align: right, role: elevated-button, text: AM}
       type: Button
     - data_bindings: []
-      event_bindings: {click: button_2_click}
+      event_bindings: {click: time_pm_button_click}
       layout_properties: {grid_position: 'DAEJNS,VSUIUJ'}
-      name: button_2
+      name: time_pm_button
       properties: {align: left, enabled: true, role: elevated-button, text: PM, underline: false, visible: true}
       type: Button
     - layout_properties: {grid_position: 'GLNQVB,JUZCDW'}
-      name: time_box_1
+      name: time_text_box_1
       properties: {}
       type: TextBox
     - layout_properties: {grid_position: 'NILMKB,KGWJHI'}
-      name: label_2
+      name: days_label
       properties: {text: 'Days:'}
       type: Label
     - layout_properties: {grid_position: 'FUDPTB,BUBGRK'}
-      name: button_3
-      properties: {text: M}
+      name: days_mon_button
+      properties: {text: MON}
       type: Button
     - layout_properties: {grid_position: 'FUDPTB,VSBOEX'}
-      name: button_4
-      properties: {text: T}
+      name: days_tue_button
+      properties: {text: TUE}
       type: Button
     - layout_properties: {grid_position: 'FUDPTB,RDDOSY'}
-      name: button_5
-      properties: {text: W}
+      name: days_wed_button
+      properties: {text: WED}
       type: Button
     - layout_properties: {grid_position: 'FUDPTB,LGCJLM'}
-      name: button_6
-      properties: {text: T}
+      name: days_thu_button
+      properties: {text: THU}
       type: Button
     - layout_properties: {grid_position: 'FUDPTB,QKJUBX'}
-      name: button_7
-      properties: {text: F}
+      name: days_fri_button
+      properties: {text: FRI}
       type: Button
-    - layout_properties: {grid_position: 'FUDPTB,YBCVKR'}
-      name: button_8
-      properties: {text: S}
+    - event_bindings: {click: days_sat_button_click}
+      layout_properties: {grid_position: 'FUDPTB,YBCVKR'}
+      name: days_sat_button
+      properties: {text: SAT}
       type: Button
     - layout_properties: {grid_position: 'FUDPTB,YOOTZV'}
-      name: button_9
-      properties: {text: S}
+      name: days_sun_button
+      properties: {text: SUN}
       type: Button
     - layout_properties: {grid_position: 'TOQUOE,GVGWHB'}
-      name: label_3
+      name: cycle_label
       properties:
         text: |
           Cycle:
       type: Label
     - layout_properties: {grid_position: 'TOQUOE,QEVUMX'}
-      name: Write_cycle
-      properties: {text: write your cycle}
+      name: Write_cycle_text_box
+      properties: {text: ''}
       type: TextBox
     - layout_properties: {grid_position: 'JAIEWX,KEHAKJ'}
-      name: button_10
+      name: cycle_1_button
       properties: {text: '1'}
       type: Button
     - layout_properties: {grid_position: 'JAIEWX,RSWJXN'}
-      name: button_3_copy
+      name: cycle_2_button
       properties: {text: '2'}
       type: Button
     - layout_properties: {grid_position: 'JAIEWX,LBFIXK'}
-      name: button_3_copy_2
+      name: cycle_3_button
       properties: {text: '3'}
       type: Button
     - layout_properties: {grid_position: 'JAIEWX,ABEXZU'}
-      name: button_3_copy_3
+      name: cycle_4_button
       properties: {text: '4'}
       type: Button
     - layout_properties: {grid_position: 'JAIEWX,GJYVZT'}
-      name: button_3_copy_4
+      name: cycle_5_button
       properties: {text: '5'}
       type: Button
     - layout_properties: {grid_position: 'IMEVHO,QDGFZO'}
-      name: label_4
-      properties: {text: Alarm int}
+      name: alarm_interval_label
+      properties: {text: Alarm interval(min)}
       type: Label
+    - layout_properties: {grid_position: 'AKMSHP,HRHDVG'}
+      name: alarm_interval_text_box
+      properties: {}
+      type: TextBox
+    - event_bindings: {click: Cancle_button_click}
+      layout_properties: {grid_position: 'VELWMS,BWEVAL'}
+      name: clock_cancle_button
+      properties: {text: Cancle}
+      type: Button
+    - layout_properties: {grid_position: 'VELWMS,AODTOU'}
+      name: clock_save_button
+      properties: {text: Save}
+      type: Button
     layout_properties: {grid_position: 'XBLJPC,TNPFRJ'}
     name: outlined_card_1
     properties: {role: outlined-card}
