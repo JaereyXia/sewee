@@ -16,10 +16,31 @@ class clock_page(clock_pageTemplate):
   def Cancle_button_click(self, **event_args):#open home page
     open_form('home_page')
   def time_text_box_1_pressed_enter(self, **event_args):
+    open_form('clock_page')
+
+  def time_bottn_am_click(self, **event_args):
+    if self.time_button_am.role == 'elevated-button':
+      self.time_button_am.role= 'filled-button'
+    else:
+      self.time_button_am.role = 'elevated-button'
+
+  def time_pm_button_click(self, **event_args):
+    if self.time_button_pm.role == 'elevated-button':
+      self.time_button_pm.role= 'filled-button'
+    else:
+      self.time_button_pm.role = 'elevated-button'
+
+  def days_mon_button_click(self, **event_args):
+    if self.time_mon_button.role == 'elevated-button':
+      self.time_mon_button.role= 'filled-button'
+    else:
+      self.time_mon_button.role = 'elevated-button'
+    
+  
     
 '''
   def clock_save_button_click(self, **event_args):
-    name = self.time_text_box_1.text # Set 'name' to the text in the 'name_box'
+    time = self.time_text_box_1.text # Set 'time' to the number in the 'time_box'
     email = self.email_box.text # Set 'email' to the text in the 'email_box'
     feedback = self.feedback_box.text # Call your 'add_feedback' server function
 '''

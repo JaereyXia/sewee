@@ -27,11 +27,11 @@ class feedback_form(feedback_formTemplate):
   def check_blank_feedback_form(self):
     #if any of the text box is blank, the code will send a notification to the user to tell him/her
     if self.name_box.text == "":
-      Notification("Can't send blank feedback form, please check the text box again").show()
+      Notification("Can't send blank feedback form, please check the name box again").show()
     elif self.email_box.text == "":
-      Notification("Can't send blank feedback form, please check the text box again").show()
+      Notification("Can't send blank feedback form, please check the email box again").show()
     elif self.feedback_box.text == "":
-      Notification("Can't send blank feedback form, please check the text box again").show()
+      Notification("Can't send blank feedback form, please check the feedback box again").show()
     else:#else the code will tell the key that the user has fill the feedback form and it's ready to be send.
       self.key = True
       
