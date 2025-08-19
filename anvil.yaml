@@ -34,5 +34,5 @@ services:
 - client_config: {}
   server_config: {}
   source: /runtime/services/anvil/email.yml
-startup: {module: feedback_form, type: form}
+startup: {module: clock_page, type: form}
 startup_form: null

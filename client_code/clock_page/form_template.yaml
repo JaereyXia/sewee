@@ -15,7 +15,8 @@ components:
       name: time_pm_button
       properties: {align: left, enabled: true, role: elevated-button, text: PM, underline: false, visible: true}
       type: Button
-    - layout_properties: {grid_position: 'GLNQVB,JUZCDW'}
+    - event_bindings: {pressed_enter: time_text_box_1_pressed_enter}
+      layout_properties: {grid_position: 'GLNQVB,JUZCDW'}
       name: time_text_box_1
       properties: {}
       type: TextBox
@@ -95,7 +96,8 @@ components:
       name: clock_cancle_button
       properties: {text: Cancle}
       type: Button
-    - layout_properties: {grid_position: 'VELWMS,AODTOU'}
+    - event_bindings: {click: clock_save_button_click}
+      layout_properties: {grid_position: 'VELWMS,AODTOU'}
       name: clock_save_button
       properties: {text: Save}
       type: Button

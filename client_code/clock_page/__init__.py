@@ -13,5 +13,17 @@ class clock_page(clock_pageTemplate):
 
     # Any code you write here will run before the form opens.
 
+  def Cancle_button_click(self, **event_args):#open home page
+    open_form('home_page')
+  def time_text_box_1_pressed_enter(self, **event_args):
+    
+'''
+  def clock_save_button_click(self, **event_args):
+    name = self.time_text_box_1.text # Set 'name' to the text in the 'name_box'
+    email = self.email_box.text # Set 'email' to the text in the 'email_box'
+    feedback = self.feedback_box.text # Call your 'add_feedback' server function
+'''
+
+
 
 

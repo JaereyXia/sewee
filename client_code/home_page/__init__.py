@@ -12,6 +12,8 @@ class home_page(home_pageTemplate):
 
     # Any code you write here will run before the form opens.
 
-  def add_clock_botton_click(self, **event_args):
-    """This method is called when the button is clicked"""
+  def add_clock_botton_click(self, **event_args):#open clock opage
     open_form('clock_page')
+
+  def feedback_button_click(self, **event_args):#open feedback form 
+    open_form('feedback_form')
