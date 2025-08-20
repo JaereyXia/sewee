@@ -31,10 +31,48 @@ class clock_page(clock_pageTemplate):
       self.time_button_pm.role = 'elevated-button'
 
   def days_mon_button_click(self, **event_args):
-    if self.time_mon_button.role == 'elevated-button':
-      self.time_mon_button.role= 'filled-button'
+    if self.days_mon_button.role == 'elevated-button':
+      self.days_mon_button.role= 'filled-button'
     else:
-      self.time_mon_button.role = 'elevated-button'
+      self.days_mon_button.role = 'elevated-button'
+
+  def days_tue_button_click(self, **event_args):
+    if self.days_tue_button.role == 'elevated-button':
+      self.days_tue_button.role= 'filled-button'
+    else:
+      self.days_tue_button.role = 'elevated-button'
+
+  def days_wed_button_click(self, **event_args):
+    if self.days_wed_button.role == 'elevated-button':
+      self.days_wed_button.role= 'filled-button'
+    else:
+      self.days_wed_button.role = 'elevated-button'
+
+  def days_thu_button_click(self, **event_args):
+    if self.days_thu_button.role == 'elevated-button':
+      self.days_thu_button.role= 'filled-button'
+    else:
+      self.days_thu_button.role = 'elevated-button'
+
+  def days_fri_button_click(self, **event_args):
+    if self.days_fri_button.role == 'elevated-button':
+      self.days_fri_button.role= 'filled-button'
+    else:
+      self.days_fri_button.role = 'elevated-button'
+
+  def days_sat_button_click(self, **event_args):
+    if self.days_sat_button.role == 'elevated-button':
+      self.days_sat_button.role= 'filled-button'
+    else:
+      self.days_sat_button.role = 'elevated-button'
+
+  def days_sun_button_click(self, **event_args):
+    if self.days_sun_button.role == 'elevated-button':
+      self.days_sun_button.role= 'filled-button'
+    else:
+      self.days_sun_button.role = 'elevated-button'
+
+  
     
   
     

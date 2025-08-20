@@ -31,19 +31,23 @@ components:
       name: days_mon_button
       properties: {role: elevated-button, text: MON}
       type: Button
-    - layout_properties: {grid_position: 'FUDPTB,VSBOEX'}
+    - event_bindings: {click: days_tue_button_click}
+      layout_properties: {grid_position: 'FUDPTB,VSBOEX'}
       name: days_tue_button
       properties: {role: elevated-button, text: TUE}
       type: Button
-    - layout_properties: {grid_position: 'FUDPTB,RDDOSY'}
+    - event_bindings: {click: days_wed_button_click}
+      layout_properties: {grid_position: 'FUDPTB,RDDOSY'}
       name: days_wed_button
       properties: {role: elevated-button, text: WED}
       type: Button
-    - layout_properties: {grid_position: 'FUDPTB,LGCJLM'}
+    - event_bindings: {click: days_thu_button_click}
+      layout_properties: {grid_position: 'FUDPTB,LGCJLM'}
       name: days_thu_button
       properties: {role: elevated-button, text: THU}
       type: Button
-    - layout_properties: {grid_position: 'FUDPTB,QKJUBX'}
+    - event_bindings: {click: days_fri_button_click}
+      layout_properties: {grid_position: 'FUDPTB,QKJUBX'}
       name: days_fri_button
       properties: {role: elevated-button, text: FRI}
       type: Button
@@ -52,7 +56,8 @@ components:
       name: days_sat_button
       properties: {role: elevated-button, text: SAT}
       type: Button
-    - layout_properties: {grid_position: 'FUDPTB,YOOTZV'}
+    - event_bindings: {click: days_sun_button_click}
+      layout_properties: {grid_position: 'FUDPTB,YOOTZV'}
       name: days_sun_button
       properties: {role: elevated-button, text: SUN}
       type: Button

@@ -1,6 +1,7 @@
 components:
 - components:
-  - event_bindings: {tick: timer_1_tick}
+  - data_bindings: []
+    event_bindings: {tick: timer_1_tick}
     layout_properties: {full_width_row: false, grid_position: 'GIAIXG,ZGTVHH'}
     name: timer_1
     properties: {interval: 5}
