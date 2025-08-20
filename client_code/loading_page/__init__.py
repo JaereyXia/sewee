@@ -4,7 +4,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from Python import random
+
 
 
 class loading_page(loading_pageTemplate):
@@ -16,8 +16,7 @@ class loading_page(loading_pageTemplate):
     # Any code you write here will run before the form opens.
 
   def timer_1_tick(self, **event_args):
-    a= random(0,5)
-    self.timer_1_tick.interval(1)
+    random.randit
     open_form('home_page')
     
   
