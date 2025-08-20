@@ -10,7 +10,8 @@ components:
       name: time_number_hour_box
       properties: {align: left, placeholder: Hour}
       type: TextBox
-    - layout_properties: {grid_position: 'DAEJNS,WOLBZV'}
+    - event_bindings: {pressed_enter: time_number_minute_box_pressed_enter}
+      layout_properties: {grid_position: 'DAEJNS,WOLBZV'}
       name: time_number_minute_box
       properties: {placeholder: Minute}
       type: TextBox

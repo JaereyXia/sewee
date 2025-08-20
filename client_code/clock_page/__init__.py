@@ -17,10 +17,24 @@ class clock_page(clock_pageTemplate):
     open_form('home_page')
     
   def time_number_hour_box_pressed_enter(self, **event_args):#If the user enter a wrong time, it will detect and tell the user
+    try:
+      if float(int(self.time_number_hour_box.text)) >12 or float(int(self.time_number_hour_box.text)) < 0:
+          self.time_number_hour_box.text = ""
+          Notification("Wrong number, please inter times within 12 hour").show()
+    except ValueError:
+      Notification("Whoops! This wasn't a whole number").show()
+      self.time_number_hour_box.text = ""
     
-    self.time_number_box = ""
-    Notification("Wrong number, please inter times within 12 hour").show()
-
+     
+  def time_number_minute_box_pressed_enter(self, **event_args):
+    try:
+      if int(self.time_number_minute_box.text) >60 or int(self.time_number_minute_box.text) < 0:
+        self.time_number_minute_box.text = ""
+        Notification("Wrong number, please inter times within 60 minute").show()
+    except ValueError:
+      Notification("Whoops! This wasn't a whole number").show()
+      self.time_number_minute_box.text = ""
+  
   def time_bottn_am_click(self, **event_args):
     if self.time_button_am.role == 'elevated-button':
       self.time_button_am.role= 'filled-button'
@@ -76,8 +90,9 @@ class clock_page(clock_pageTemplate):
       self.days_sun_button.role = 'elevated-button'
 
   def clock_save_button_click(self, **event_args):
-    time_hour = self.time_number_hour_box_click()
-    time_minute = self.time_number_minute_box
+    time_hour = self.time_number_hour_box.text
+    time_minute = self.time_number_minute_box.text
+
 
   
     
