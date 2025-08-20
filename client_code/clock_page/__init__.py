@@ -13,10 +13,13 @@ class clock_page(clock_pageTemplate):
 
     # Any code you write here will run before the form opens.
 
-  def Cancle_button_click(self, **event_args):#open home page
+  def Cancle_button_click(self, **event_args):#cancel the creating of the clock and go back to home page
     open_form('home_page')
-  def time_text_box_1_pressed_enter(self, **event_args):
-    open_form('clock_page')
+    
+  def time_number_hour_box_pressed_enter(self, **event_args):#If the user enter a wrong time, it will detect and tell the user
+    
+    self.time_number_box = ""
+    Notification("Wrong number, please inter times within 12 hour").show()
 
   def time_bottn_am_click(self, **event_args):
     if self.time_button_am.role == 'elevated-button':
@@ -72,17 +75,10 @@ class clock_page(clock_pageTemplate):
     else:
       self.days_sun_button.role = 'elevated-button'
 
-  
-    
-  
-    
-'''
   def clock_save_button_click(self, **event_args):
-    time = self.time_text_box_1.text # Set 'time' to the number in the 'time_box'
-    email = self.email_box.text # Set 'email' to the text in the 'email_box'
-    feedback = self.feedback_box.text # Call your 'add_feedback' server function
-'''
+    time_am = self.time_bottn_am_click()
+    time_
 
-
-
-
+  
+    
+  

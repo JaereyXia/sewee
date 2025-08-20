@@ -35,6 +35,11 @@ components:
     name: image_2
     properties: {source: _/theme/Loading_icon_sewee-ezgif.com-resize.gif}
     type: Image
+  - event_bindings: {click: button_1_click}
+    layout_properties: {grid_position: 'DBATAF,YERNHR'}
+    name: button_1
+    properties: {align: right, role: filled-button, text: Report}
+    type: Button
   event_bindings: {}
   layout_properties: {slot: default}
   name: content_panel
