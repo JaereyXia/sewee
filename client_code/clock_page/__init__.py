@@ -76,8 +76,8 @@ class clock_page(clock_pageTemplate):
       self.days_sun_button.role = 'elevated-button'
 
   def clock_save_button_click(self, **event_args):
-    time_am = self.time_bottn_am_click()
-    time_
+    time_hour = self.time_number_hour_box_click()
+    time_minute = self.time_number_minute_box
 
   
     
