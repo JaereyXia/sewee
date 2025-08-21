@@ -93,6 +93,26 @@ class clock_page(clock_pageTemplate):
     time_hour = self.time_number_hour_box.text
     time_minute = self.time_number_minute_box.text
 
+  def write_cycle_number_box_pressed_enter(self, **event_args):
+    try:
+      if int(self.write_cycle_number_box.text) >60 or int(self.write_cycle_number_box.text) < 0:
+        self.write_cycle_number_box.text = ""
+        Notification("Wrong number, please inter times within 60 minute").show()
+    except ValueError:
+      Notification("Whoops! This wasn't a whole number").show()
+      self.write_cycle_number_box.text = ""
+
+  def alarm_interval_number_box_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
+
+
+
+
+
+    
+
+
 
   
     
