@@ -10,8 +10,16 @@ class clock_page(clock_pageTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-
     # Any code you write here will run before the form opens.
+    self.am_key = False#If the key is True, it means the user click the am button
+    self.pm_key = False#If the key is True, it means the user click the pm button
+    self.mon_key = False#If the key is True, it means the user click the mon button
+    self.tue_key = False#If the key is True, it means the user click the tue button
+    self.wed_key = False#If the key is True, it means the user click the wed button
+    self.thu_key = False#If the key is True, it means the user click the thu button
+    self.fri_key = False#If the key is True, it means the user click the fri button
+    self.sat_key = False#If the key is True, it means the user click the sat button
+    self.sun_key = False#If the key is True, it means the user click the sun button
 
   def Cancle_button_click(self, **event_args):#cancel the creating of the clock and go back to home page
     open_form('home_page')
@@ -55,14 +63,24 @@ class clock_page(clock_pageTemplate):
   def time_bottn_am_click(self, **event_args):#time am
     if self.time_button_am.role == 'elevated-button':
       self.time_button_am.role= 'filled-button'
+      self.am_key = True
+      self.pm_key = False
+      if self.am_key :
+        self.time_button_am.role = 'elevated-button'
     else:
       self.time_button_am.role = 'elevated-button'
+      self.am_key = False
 
   def time_pm_button_click(self, **event_args):#time pm
     if self.time_button_pm.role == 'elevated-button':
       self.time_button_pm.role= 'filled-button'
+      self.pm_key = True
+      self.am_key = False
+      if self.pm_key :
+        self.time_button_am.role = 'elevated-button'
     else:
       self.time_button_pm.role = 'elevated-button'
+      self.pm_key = False
 
   def days_mon_button_click(self, **event_args):#weekend
     if self.days_mon_button.role == 'elevated-button':
