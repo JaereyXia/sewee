@@ -65,8 +65,8 @@ class clock_page(clock_pageTemplate):
       self.time_button_am.role= 'filled-button'
       self.am_key = True
       self.pm_key = False
-      if self.am_key :
-        self.time_button_am.role = 'elevated-button'
+      if self.am_key :#if the user click on am button disable pm button
+        self.time_button_pm.role = 'elevated-button'
     else:
       self.time_button_am.role = 'elevated-button'
       self.am_key = False
@@ -76,7 +76,7 @@ class clock_page(clock_pageTemplate):
       self.time_button_pm.role= 'filled-button'
       self.pm_key = True
       self.am_key = False
-      if self.pm_key :
+      if self.pm_key :#if the user click on pm button disable am button
         self.time_button_am.role = 'elevated-button'
     else:
       self.time_button_pm.role = 'elevated-button'
@@ -85,49 +85,73 @@ class clock_page(clock_pageTemplate):
   def days_mon_button_click(self, **event_args):#weekend
     if self.days_mon_button.role == 'elevated-button':
       self.days_mon_button.role= 'filled-button'
+      self.mon_key = True
     else:
       self.days_mon_button.role = 'elevated-button'
+      self.mon_key = False
 
   def days_tue_button_click(self, **event_args):#weekend
     if self.days_tue_button.role == 'elevated-button':
       self.days_tue_button.role= 'filled-button'
+      self.tue_key = True
     else:
       self.days_tue_button.role = 'elevated-button'
+      self.tue_key = False
 
   def days_wed_button_click(self, **event_args):#weekend
     if self.days_wed_button.role == 'elevated-button':
       self.days_wed_button.role= 'filled-button'
+      self.wed_key = True
     else:
       self.days_wed_button.role = 'elevated-button'
+      self.wed_key = False
 
   def days_thu_button_click(self, **event_args):#weekend
     if self.days_thu_button.role == 'elevated-button':
       self.days_thu_button.role= 'filled-button'
+      self.thu_key = True
     else:
       self.days_thu_button.role = 'elevated-button'
+      self.thu_key = False
 
   def days_fri_button_click(self, **event_args):#weekend
     if self.days_fri_button.role == 'elevated-button':
       self.days_fri_button.role= 'filled-button'
+      self.fri_key = True
     else:
       self.days_fri_button.role = 'elevated-button'
+      self.fri_key = False
 
   def days_sat_button_click(self, **event_args):#weekend
     if self.days_sat_button.role == 'elevated-button':
       self.days_sat_button.role= 'filled-button'
+      self.sat_key = True
     else:
       self.days_sat_button.role = 'elevated-button'
+      self.sat_key = False
 
   def days_sun_button_click(self, **event_args):#weekend
     if self.days_sun_button.role == 'elevated-button':
       self.days_sun_button.role= 'filled-button'
+      self.sun_key = True
     else:
       self.days_sun_button.role = 'elevated-button'
+      self.sun_key = False
 
-  def clock_save_button_click(self, **event_args):
+  def clock_save_button_click(self, **event_args):#stone all the information of the clock, and send it to the server
     time_hour = self.time_number_hour_box.text
     time_minute = self.time_number_minute_box.text
-
+    number_cycle = self.write_cycle_number_box
+    number_interval = self.alarm_interval_number_box
+    button_am = self.am_key
+    button_pm = self.pm_key
+    weekend_mon = self.mon_key
+    weekend_tue = self.tue_key
+    weekend_wed = self.wed_key
+    weekend_thu = self.thu_key
+    weekend_fri = self.fri_key
+    weekend_sat = self.sat_key
+    weekend_sun = self.sun_key
   
     
 
