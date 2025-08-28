@@ -86,7 +86,7 @@ components:
     - event_bindings: {pressed_enter: alarm_interval_number_box_pressed_enter}
       layout_properties: {grid_position: 'IMEVHO,VAZSFC'}
       name: alarm_interval_number_box
-      properties: {text: How many min before the alarm ring agian}
+      properties: {placeholder: How many min before the alarm ring agian, text: ''}
       type: TextBox
     - event_bindings: {click: Cancle_button_click}
       layout_properties: {grid_position: 'VELWMS,BWEVAL'}
