@@ -8,7 +8,7 @@ from anvil.tables import app_tables
 
 class clock_page(clock_pageTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
+    # Set Form properties and Data Bi ndings.
     self.init_components(**properties)
     # Any code you write here will run before the form opens.
     self.am_key = False#If the key is True, it means the user click the am button
