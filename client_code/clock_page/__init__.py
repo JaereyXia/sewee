@@ -142,6 +142,15 @@ class clock_page(clock_pageTemplate):
       self.sun_key = False
 
   def clock_save_button_click(self, **event_args):#stone all the information of the clock, and send it to the server
+    if self.time_number_hour_box.text == "":
+      Notification("please fill in the hour").show()
+    elif self.time_number_minute_box.text == "":
+      Notification("please fill in the minute").show()
+    elif self.write_cycle_number_box.text == "":
+      Notification("please fill in the cycle")
+    elif self.alarm_interval_label.text == "":
+      Notification("please fill in the interval")
+    
     time_hour = self.time_number_hour_box.text
     time_minute = self.time_number_minute_box.text
     number_cycle = self.write_cycle_number_box
@@ -155,7 +164,10 @@ class clock_page(clock_pageTemplate):
     weekend_fri = self.fri_key
     weekend_sat = self.sat_key
     weekend_sun = self.sun_key
+    anvil.server.call('add_clock', time_hour, time_minute, number_cycle, number_interval, button_am, button_pm, weekend_mon, weekend_tue, weekend_wed, weekend_thu, weekend_fri, weekend_sat, weekend_sun)
     Notification("Alarm Clock Set").show()
+    open_form('home_page')
+    
     
 
 
