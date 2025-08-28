@@ -152,7 +152,7 @@ class clock_page(clock_pageTemplate):
     weekend_fri = self.fri_key
     weekend_sat = self.sat_key
     weekend_sun = self.sun_key
-  
+    Notification("Alarm Clock Set").show()
     
 
 

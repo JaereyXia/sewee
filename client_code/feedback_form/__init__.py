@@ -44,3 +44,4 @@ class feedback_form(feedback_formTemplate):
   def home_button_click(self, **event_args):
     # If the users click this button, it will lead him/her back to the home page
     open_form('home_page')
+    

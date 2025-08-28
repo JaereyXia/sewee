@@ -26,3 +26,5 @@ def add_feedback(name, email, feedback):
   {feedback}
   """)
 
+def add_clock(time_hour, time_minute, number_cycle, number_interval, button_am, button_pm, weekend_mon, weekend_tue, weekend_wed, weekend_thu, weekend_fri, weekend_sat, weekend_sun):
+  pass

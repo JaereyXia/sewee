@@ -17,6 +17,20 @@ db_schema:
       type: datetime
     server: full
     title: feedback
+  files:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: path
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: file
+      type: media
+    - admin_ui: {order: 2, width: 200}
+      name: file_version
+      type: string
+    server: full
+    title: Files
 dependencies: []
 metadata: {description: 'This is Sewee, a alarm clock for everyone', logo_img: 'asset:image-Photoroom.png', title: L2DGT SEWEE app develpment-Jerry}
 name: SEWEE
