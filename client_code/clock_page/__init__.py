@@ -23,6 +23,7 @@ class clock_page(clock_pageTemplate):
     self.fri_key = False#If the key is True, it means the user click the fri button
     self.sat_key = False#If the key is True, it means the user click the sat button
     self.sun_key = False#If the key is True, it means the user click the sun button
+    self.fill_in_key = False#If the key is True, it means the user fill in all information of the clock. eg hour,minute...
 
   def Cancle_button_click(self, **event_args):#cancel the creating of the clock and go back to home page
     open_form('home_page')
@@ -142,31 +143,47 @@ class clock_page(clock_pageTemplate):
       self.sun_key = False
 
   def clock_save_button_click(self, **event_args):#stone all the information of the clock, and send it to the server
-    if self.time_number_hour_box.text == "":
-      Notification("please fill in the hour").show()
-    elif self.time_number_minute_box.text == "":
-      Notification("please fill in the minute").show()
-    elif self.write_cycle_number_box.text == "":
-      Notification("please fill in the cycle")
-    elif self.alarm_interval_label.text == "":
-      Notification("please fill in the interval")
+    if self.time_number_hour_box.text == "":#if the user didn't type in the hour
+      Notification("please fill in the hour").show()#tell the user to fill in
+    elif self.time_number_minute_box.text == "":#if the user didn't type in the minute
+      Notification("please fill in the minute").show()#tell the user to fill in
+    elif self.write_cycle_number_box.text == "":#if the user didn't tyep in the cycle
+      Notification("please fill in the cycle").show()#tell the user to fill in
+    elif self.alarm_interval_label.text == "":#if the user didn't type in the interval
+      Notification("please fill in the interval").show()#tell the user to fill in
+    else:#if the user fill in the numbers
+      self.fill_in_key = True#allow to send the information to the server
+    if self.am_key or self.pm_key:
+      pass
+    else:
+      self.fill_in_key = False
+      Notification("please chose am or pm").show()
+    if self.mon_key or self.tue_key or self.wed_key or self.thu_key or self.fri_key or self.sat_key or self.sun_key:
+      pass
+    else:
+      self.fill_in_key = False
+      Notification("please chonse the day").show()
+
     
-    time_hour = self.time_number_hour_box.text
-    time_minute = self.time_number_minute_box.text
-    number_cycle = self.write_cycle_number_box
-    number_interval = self.alarm_interval_number_box
-    button_am = self.am_key
-    button_pm = self.pm_key
-    weekend_mon = self.mon_key
-    weekend_tue = self.tue_key
-    weekend_wed = self.wed_key
-    weekend_thu = self.thu_key
-    weekend_fri = self.fri_key
-    weekend_sat = self.sat_key
-    weekend_sun = self.sun_key
-    anvil.server.call('add_clock', time_hour, time_minute, number_cycle, number_interval, button_am, button_pm, weekend_mon, weekend_tue, weekend_wed, weekend_thu, weekend_fri, weekend_sat, weekend_sun)
-    Notification("Alarm Clock Set").show()
-    open_form('home_page')
+    if self.fill_in_key:
+      time_hour = int(self.time_number_hour_box.text)
+      time_minute = int(self.time_number_minute_box.text)
+      number_cycle = int(self.write_cycle_number_box.text)
+      number_interval = int(self.alarm_interval_number_box.text)
+      button_am = self.am_key
+      button_pm = self.pm_key
+      weekend_mon = self.mon_key
+      weekend_tue = self.tue_key
+      weekend_wed = self.wed_key
+      weekend_thu = self.thu_key
+      weekend_fri = self.fri_key
+      weekend_sat = self.sat_key
+      weekend_sun = self.sun_key
+      anvil.server.call('add_clock', time_hour, time_minute, number_cycle, number_interval, button_am, button_pm, weekend_mon, weekend_tue, weekend_wed, weekend_thu, weekend_fri, weekend_sat, weekend_sun)
+      Notification("Alarm Clock Set").show()
+      open_form('home_page')
+    else:
+      pass
     
     
 

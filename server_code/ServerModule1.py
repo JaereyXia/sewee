@@ -42,5 +42,6 @@ def add_clock(time_hour, time_minute, number_cycle, number_interval, button_am, 
     wed = weekend_wed,
     thu = weekend_thu,
     fri = weekend_fri,
-    sat = weekend_sat 
+    sat = weekend_sat, 
+    sun = weekend_sun
   )
