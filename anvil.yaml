@@ -1,5 +1,10 @@
 allow_embedding: false
 db_schema:
+  clock:
+    client: none
+    columns: []
+    server: full
+    title: clock
   feedback:
     client: none
     columns:
@@ -17,20 +22,6 @@ db_schema:
       type: datetime
     server: full
     title: feedback
-  files:
-    client: none
-    columns:
-    - admin_ui: {order: 0, width: 200}
-      name: path
-      type: string
-    - admin_ui: {order: 1, width: 200}
-      name: file
-      type: media
-    - admin_ui: {order: 2, width: 200}
-      name: file_version
-      type: string
-    server: full
-    title: Files
   users:
     client: none
     columns:
