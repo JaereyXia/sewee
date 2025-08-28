@@ -1,0 +1,6 @@
+components: []
+container:
+  event_bindings: {}
+  properties: {bold: false}
+  type: DataRowPanel
+is_package: true

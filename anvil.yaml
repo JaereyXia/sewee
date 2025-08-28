@@ -2,7 +2,46 @@ allow_embedding: false
 db_schema:
   clock:
     client: none
-    columns: []
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: hour
+      type: number
+    - admin_ui: {order: 1, width: 200}
+      name: minute
+      type: number
+    - admin_ui: {order: 2, width: 200}
+      name: am
+      type: bool
+    - admin_ui: {order: 3, width: 200}
+      name: pm
+      type: bool
+    - admin_ui: {order: 4, width: 200}
+      name: mom
+      type: bool
+    - admin_ui: {order: 5, width: 200}
+      name: tue
+      type: bool
+    - admin_ui: {order: 6, width: 200}
+      name: wed
+      type: bool
+    - admin_ui: {order: 7, width: 200}
+      name: thu
+      type: bool
+    - admin_ui: {order: 8, width: 200}
+      name: fri
+      type: bool
+    - admin_ui: {order: 9, width: 200}
+      name: sat
+      type: bool
+    - admin_ui: {order: 10, width: 200}
+      name: sun
+      type: bool
+    - admin_ui: {order: 11, width: 200}
+      name: cycle
+      type: number
+    - admin_ui: {order: 12, width: 200}
+      name: Alarm interval
+      type: number
     server: full
     title: clock
   feedback:
