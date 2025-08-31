@@ -110,5 +110,5 @@ services:
 - client_config: {}
   server_config: {}
   source: /runtime/services/google.yml
-startup: {module: loading_page, type: form}
+startup: {module: home_page, type: form}
 startup_form: null
