@@ -17,6 +17,7 @@ class home_page(home_pageTemplate):
     # Any code you write here will run before the form opens.
     self.add_clock()#load all the clock
     
+    
   
 
   def add_clock(self):#this add all the clock with the information saved form data server
