@@ -42,6 +42,9 @@ db_schema:
     - admin_ui: {order: 12, width: 200}
       name: interval
       type: number
+    - admin_ui: {order: 13, width: 200}
+      name: user
+      type: string
     server: full
     title: clock
   feedback:
@@ -110,5 +113,5 @@ services:
 - client_config: {}
   server_config: {}
   source: /runtime/services/google.yml
-startup: {module: home_page, type: form}
+startup: {module: loading_page, type: form}
 startup_form: null
