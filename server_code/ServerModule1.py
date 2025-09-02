@@ -29,7 +29,7 @@ def add_feedback(name, email, feedback):
   {feedback}
   """)
 @anvil.server.callable
-def add_clock(time_hour, time_minute, number_cycle, number_interval, button_am, button_pm, weekend_mon, weekend_tue, weekend_wed, weekend_thu, weekend_fri, weekend_sat, weekend_sun):
+def add_clock(users, time_hour, time_minute, number_cycle, number_interval, button_am, button_pm, weekend_mon, weekend_tue, weekend_wed, weekend_thu, weekend_fri, weekend_sat, weekend_sun):
   app_tables.clock.add_row(
     hour = time_hour,
     minute = time_minute,
@@ -43,5 +43,6 @@ def add_clock(time_hour, time_minute, number_cycle, number_interval, button_am, 
     thu = weekend_thu,
     fri = weekend_fri,
     sat = weekend_sat, 
-    sun = weekend_sun
+    sun = weekend_sun,
+    user = users
   )

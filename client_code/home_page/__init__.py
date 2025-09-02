@@ -9,6 +9,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 
+
 class home_page(home_pageTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
@@ -16,13 +17,15 @@ class home_page(home_pageTemplate):
 
     # Any code you write here will run before the form opens.
     self.add_clock()#load all the clock
-    
+    self.clock = app_tables.clock.get(user="jaerey1016@gmail.com")#all the saved clock will be transform to here
+    print(f'{self.clock}')
     
   
 
   def add_clock(self):#this add all the clock with the information saved form data server
-    clock = Label(text="Hello")#save all the infor of the clock from data.
-    self.Clocks.add_component(clock, index=0)#add the clock
+    #clock = Label(text = self.clock[0])
+    clock = Label(text="Hello")#save all the infor of the chosen clock from data.
+    self.clock_card.add_component(clock, index=0)#add the clock
     
   
   def add_clock_botton_click(self, **event_args):#open clock opage
