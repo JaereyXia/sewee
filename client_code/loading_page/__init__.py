@@ -16,8 +16,7 @@ class loading_page(loading_pageTemplate):
     self.init_components(**properties)  
     # Any code you write here will run before the form opens.
     anvil.users.login_with_form()
-    user = anvil.users.get_user()
-    print(f"{user}")
+
   
 
   def timer_1_tick(self, **event_args):#after 5 sec, the user will open the app.

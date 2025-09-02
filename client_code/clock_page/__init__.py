@@ -166,6 +166,7 @@ class clock_page(clock_pageTemplate):
 
     
     if self.fill_in_key:
+      users = anvil.users.get_user()
       time_hour = int(self.time_number_hour_box.text)
       time_minute = int(self.time_number_minute_box.text)
       number_cycle = int(self.write_cycle_number_box.text)
@@ -179,7 +180,8 @@ class clock_page(clock_pageTemplate):
       weekend_fri = self.fri_key
       weekend_sat = self.sat_key
       weekend_sun = self.sun_key
-      anvil.server.call('add_clock', time_hour, time_minute, number_cycle, number_interval, button_am, button_pm, weekend_mon, weekend_tue, weekend_wed, weekend_thu, weekend_fri, weekend_sat, weekend_sun)
+      user = users['email']
+      anvil.server.call('add_clock', user, time_hour, time_minute, number_cycle, number_interval, button_am, button_pm, weekend_mon, weekend_tue, weekend_wed, weekend_thu, weekend_fri, weekend_sat, weekend_sun)
       Notification("Alarm Clock Set").show()
       open_form('home_page')
     else:
