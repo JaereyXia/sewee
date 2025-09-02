@@ -1,7 +1,7 @@
 allow_embedding: false
 db_schema:
   clock:
-    client: none
+    client: search
     columns:
     - admin_ui: {order: 0, width: 200}
       name: hour
@@ -65,7 +65,7 @@ db_schema:
     server: full
     title: feedback
   users:
-    client: search
+    client: none
     columns:
     - admin_ui: {order: 0, width: 200}
       name: email

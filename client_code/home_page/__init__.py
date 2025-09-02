@@ -18,7 +18,7 @@ class home_page(home_pageTemplate):
     # Any code you write here will run before the form opens.
     self.add_clock()#load all the clock
     self.clock = app_tables.clock.get(user="jaerey1016@gmail.com")#all the saved clock will be transform to here
-    print(f'{self.clock}')
+    print(f'{self.clock[0]}')
     
   
 
