@@ -186,6 +186,16 @@ class clock_page(clock_pageTemplate):
       open_form('home_page')
     else:
       pass
+
+  def time_number_hour_box_lost_focus(self, **event_args):
+    try:#If the time was over 12hour or less then 1 hour, the app will send a notification telling the user
+      if float(int(self.time_number_hour_box.text)) >12 or float(int(self.time_number_hour_box.text)) < 0:
+        self.time_number_hour_box.text = ""
+        Notification("Wrong number, please enter a time within 12 hours").show()
+    except ValueError:
+      Notification("Whoops! This wasn't a whole number").show()
+      self.time_number_hour_box.text = ""
+
     
     
 
