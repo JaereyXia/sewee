@@ -20,19 +20,16 @@ class home_page(home_pageTemplate):
     self.clock = app_tables.clock.get(user="jaerey1016@gmail.com")#all the saved clock will be transform to here
     print(f'{self.clock[0]}')
     
-  
-
   def add_clock(self):#this add all the clock with the information saved form data server
     #clock = Label(text = self.clock[0])
     clock = Label(text="Hello")#save all the infor of the chosen clock from data.
     self.clock_card.add_component(clock, index=0)#add the clock
     
-  
+      
   def add_clock_botton_click(self, **event_args):#open clock opage
     open_form('clock_page')
   
   def feedback_button_click(self, **event_args):#open feedback form 
     open_form('feedback_form')
-
 
 
