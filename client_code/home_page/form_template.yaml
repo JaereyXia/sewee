@@ -6,14 +6,33 @@ components:
     properties: {align: right, role: elevated-button, text: +}
     type: Button
   - components:
-    - data_bindings: []
-      layout_properties: {grid_position: 'KVNEEJ,GOVHQM'}
-      name: clock_card
-      properties: {role: tonal-card}
-      type: LinearPanel
-    event_bindings: {show: Clocks_show}
+    - components:
+      - name: repeating_panel_1
+        properties: {item_template: home_page.RowTemplate2}
+        type: RepeatingPanel
+      layout_properties: {grid_position: 'LJZPQI,RIEZLO'}
+      name: data_grid_1
+      properties:
+        columns:
+        - {data_key: hour, id: JKSDUP, title: hour}
+        - {data_key: minute, id: VJQQOR, title: minute}
+        - {data_key: am, id: OJLQEN, title: am}
+        - {data_key: pm, id: TUJXEE, title: pm}
+        - {data_key: mon, id: IXTDGS, title: mon}
+        - {data_key: tue, id: KQZYMK, title: tue}
+        - {data_key: wed, id: GEFYRM, title: wed}
+        - {data_key: thu, id: WVYMNN, title: thu}
+        - {data_key: fri, id: SNLJKR, title: fri}
+        - {data_key: sat, id: SPYPPW, title: sat}
+        - {data_key: sun, id: DYKBBY, title: sun}
+        - {data_key: cycle, id: HKJYPR, title: cycle}
+        - {data_key: interval, id: NOCMBY, title: interval}
+        - {data_key: column_1, id: VUVPVS, title: edit}
+        - {data_key: column_2, id: OTMPFP, title: delete}
+      type: DataGrid
+    event_bindings: {}
     layout_properties: {grid_position: 'BNCNPL,XCSVPE'}
-    name: clocks_bcakground
+    name: clocks_background
     properties: {col_spacing: medium, role: outlined-card}
     type: ColumnPanel
   - event_bindings: {click: feedback_button_click}

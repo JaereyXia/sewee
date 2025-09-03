@@ -1,0 +1,21 @@
+components:
+- components:
+  - layout_properties: {}
+    name: button_1
+    properties: {icon: 'fa:pencil', text: ''}
+    type: Button
+  layout_properties: {column: VUVPVS}
+  name: edit_clock
+  properties: {}
+  type: FlowPanel
+- components:
+  - layout_properties: {}
+    name: delete_clock
+    properties: {icon: '', text: ''}
+    type: Button
+  layout_properties: {column: OTMPFP}
+  name: flow_panel_1
+  properties: {}
+  type: FlowPanel
+container: {type: DataRowPanel}
+is_package: true

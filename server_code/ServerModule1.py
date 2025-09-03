@@ -37,7 +37,7 @@ def add_clock(users, time_hour, time_minute, number_cycle, number_interval, butt
     interval = number_interval,
     am = button_am,
     pm = button_pm,
-    mom = weekend_mon,
+    mon = weekend_mon,
     tue = weekend_tue,
     wed = weekend_wed,
     thu = weekend_thu,

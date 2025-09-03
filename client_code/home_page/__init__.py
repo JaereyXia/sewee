@@ -7,6 +7,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ..clock_edit_page import clock_edit_page
 
 
 
@@ -16,15 +17,10 @@ class home_page(home_pageTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
-    self.add_clock()#load all the clock
-    self.clock = app_tables.clock.search(user="jaerey1016@gmail.com")#all the saved clock will be transform to here
-    print(f'{self.clock[0]}')
-    
-  def add_clock(self):#this add all the clock with the information saved form data server
-    #clock = Label(text = self.clock[0])
-    clock = Label(text="Hello")#save all the infor of the chosen clock from data.
-    self.clock_card.add_component(clock, index=0)#add the clock
-    
+    users_data = anvil.users.get_user()#Get the gmail of the user for identity check
+    self.repeating_panel_1.items = app_tables.clock.search(user=users_data['email'])#use the users_data to find which user is using this app, then give them they clock
+
+      
       
   def add_clock_botton_click(self, **event_args):#open clock opage
     open_form('clock_page')
