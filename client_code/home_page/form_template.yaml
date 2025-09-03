@@ -14,9 +14,9 @@ components:
       name: data_grid_1
       properties:
         columns:
-        - {data_key: hour, id: JKSDUP, title: hour}
-        - {data_key: minute, id: VJQQOR, title: minute}
-        - {data_key: am, id: OJLQEN, title: am}
+        - {data_key: hour, expand: false, id: JKSDUP, title: hour, width: 45}
+        - {data_key: minute, expand: false, id: VJQQOR, title: minute, width: 56}
+        - {data_key: am, expand: false, id: OJLQEN, title: am, width: 80}
         - {data_key: pm, id: TUJXEE, title: pm}
         - {data_key: mon, id: IXTDGS, title: mon}
         - {data_key: tue, id: KQZYMK, title: tue}
@@ -25,8 +25,6 @@ components:
         - {data_key: fri, id: SNLJKR, title: fri}
         - {data_key: sat, id: SPYPPW, title: sat}
         - {data_key: sun, id: DYKBBY, title: sun}
-        - {data_key: cycle, id: HKJYPR, title: cycle}
-        - {data_key: interval, id: NOCMBY, title: interval}
         - {data_key: column_1, id: VUVPVS, title: edit}
         - {data_key: column_2, id: OTMPFP, title: delete}
       type: DataGrid
