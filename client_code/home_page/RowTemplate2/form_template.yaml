@@ -1,8 +1,9 @@
 components:
 - components:
-  - layout_properties: {}
+  - data_bindings: []
+    layout_properties: {}
     name: button_1
-    properties: {icon: 'fa:pencil', text: ''}
+    properties: {icon: 'fa:pencil', role: elevated-button, text: ''}
     type: Button
   layout_properties: {column: VUVPVS}
   name: edit_clock

@@ -46,3 +46,7 @@ def add_clock(users, time_hour, time_minute, number_cycle, number_interval, butt
     sun = weekend_sun,
     user = users
   )
+@anvil.server.callable
+def update_clock(clock, clock_data):
+  if clock_data['user'] and clock_data['hour'] and clock_data['minute'] and clock_data['am'] and clock_data['pm'] and clock_data['mon'] and clock_data['movie_name']//:
+    clock.update(**clock_data)
