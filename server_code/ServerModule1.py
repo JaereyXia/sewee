@@ -45,5 +45,5 @@ def add_clock(names, users, time_hour, time_minute, number_cycle, number_interva
     sat = weekend_sat, 
     sun = weekend_sun,
     user = users,
-    name = str(names)
+    name = names
   )
