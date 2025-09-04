@@ -221,9 +221,13 @@ class clock_page(clock_pageTemplate):
       weekend_sat = self.sat_key
       weekend_sun = self.sun_key
       users = user['email']
-      names = self.name_box
+      names = str(self.name_box)
       anvil.server.call('add_clock', names, users, time_hour, time_minute, number_cycle, number_interval, button_am, button_pm, weekend_mon, weekend_tue, weekend_wed, weekend_thu, weekend_fri, weekend_sat, weekend_sun)
       Notification("Alarm Clock Set").show()
       open_form('home_page')
     else:
       pass
+
+  def name_box_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass

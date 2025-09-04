@@ -17,8 +17,12 @@ class RowTemplate2(RowTemplate2Template):
     # Any code you write here will run before the form opens.
 
   def delete_clock_click(self, **event_args):
-    my_row_to_delete = app_tables.clock.get(name = 'name')
-    if confirm(f"Do you really want to delete the clock {my_row_to_delete['name']}?"):
-      my_row_to_delete.delete()
+    if confirm(f'Do you want to delete this clock?'):
+      # self.item refers to the current row in the repeating panel
+      self.item.delete()
+      # Optionally, remove the item from the repeating panel display
+      self.remove_from_parent()
+      #tell the user the delete is done
+      Notification("clock deleted").show() 
       
 
