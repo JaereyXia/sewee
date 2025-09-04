@@ -58,7 +58,7 @@ class clock_page(clock_pageTemplate):
     try:#if the time was over 59 minute that means it's 1 hour, or if the time is less then 1 minute, the app will tell the user 
       if int(self.time_number_minute_box.text) >59 or int(self.time_number_minute_box.text) < 0:
         self.time_number_minute_box.text = ""
-        Notification("Wrong number, please enter a value of less than 60 minutes").show()
+        Notification("Wrong number, please enter a value less than 60 minutes").show()
     except ValueError:
       Notification("Whoops! This wasn't a whole number").show()
       self.time_number_minute_box.text = ""

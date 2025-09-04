@@ -41,7 +41,5 @@ class home_page(home_pageTemplate):
     open_form('feedback_form')
 
 
-  def edit_button_click(self, **event_args):
-    open_form('clock_edit_page')
 
 

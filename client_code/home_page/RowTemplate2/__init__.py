@@ -16,7 +16,9 @@ class RowTemplate2(RowTemplate2Template):
 
     # Any code you write here will run before the form opens.
 
-  def delete_clock_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+  def delete_clock_click(self, clock, **event_args):
+    if confirm(f"Do you really want to delete the clock {clock['name']}?"):
+      my_row_to_delete = app_tables.clock.get(name = 'name')
+      my_row_to_delete.delete()
+      
 
