@@ -19,6 +19,9 @@ class home_page(home_pageTemplate):
     # Any code you write here will run before the form opens.
     users_data = anvil.users.get_user()#Get the gmail of the user for identity check
     self.repeating_panel_1.items = app_tables.clock.search(user=users_data['email'])#use the users_data to find which user is using this app, then give them they clock
+    self.repeating_panel_1.items = app_tables.movies.search()
+    #add this line to set the event handler
+    self.repeating_panel_1.add_event_handler('x-edit-movie', self.edit_movie)
 
 
   def edit_clock(self, user, **event_args):

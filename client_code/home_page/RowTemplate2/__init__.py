@@ -28,8 +28,7 @@ class RowTemplate2(RowTemplate2Template):
       Notification("clock deleted").show()#tell the user the clock is deleted
 
   def edit_button_click(self, **event_args):
-    print(f'{self.item[]}')#Testing
-    open_form('clock_edit_page',self.item)
+    self.parent.raise_event('x-edit-clock', clock=self.item)
     
   
       

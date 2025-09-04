@@ -12,9 +12,6 @@ from anvil.tables import app_tables
 
 class clock_edit_page(clock_edit_pageTemplate):
   def __init__(self, edit_data_item, **properties):
-    # Set Form properties and Data Bi ndings.
-    #print(f'{edit_data_item}')#Testing
-
     
     self.init_components(**properties)
     # Any code you write here will run before the form opens.
