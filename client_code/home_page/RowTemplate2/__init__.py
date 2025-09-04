@@ -19,17 +19,15 @@ class RowTemplate2(RowTemplate2Template):
   def delete_clock_click(self, **event_args):
     if confirm(f'Do you want to delete this clock?'):#ask the user to confirm the question, eiher yes or cancle
       # self.item refers to the current row in the repeating panel
-
-      self.item.delete()
-
-      # Optionally, remove the item from the repeating panel display
+      self.item.delete()#delete that current row
+      # Optionally, remrove the item from the repeating panel display
       self.remove_from_parent()
       #tell the user the delete is done
       Notification("clock deleted").show()#tell the user the clock is deleted
 
   def edit_button_click(self, **event_args):
-    item = dict(self.item)
-    open_form('clock_edit_page',item)
+    item = dict(self.item)#store the data of the current row to item
+    open_form('clock_edit_page',item)#open the form and bring the data of the current row to clock edit page
     
   
       

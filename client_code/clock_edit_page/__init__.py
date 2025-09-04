@@ -26,40 +26,42 @@ class clock_edit_page(clock_edit_pageTemplate):
     self.sun_key = False  # If the key is True, it means the user click the sun button
     self.fill_in_key = False  # If the key is True, it means the user fill in all information of the clock. eg hour,minute...
 
-    self.name_box.text = item['clock_name']
-    self.time_number_hour_box.text = item['hour']
-    self.time_number_minute_box.text = item['minute']
-    self.write_cycle_number_box.text = item['cycle']
-    self.alarm_interval_number_box.text = item['interval']
-    if item['am']:
+    #load the clock to the text box, so the user know what he/she worte
+    self.name_box.text = item['clock_name']#load the name
+    self.time_number_hour_box.text = item['hour']#load the hour
+    self.time_number_minute_box.text = item['minute']#load the minute
+    self.write_cycle_number_box.text = item['cycle']#load the cycle
+    self.alarm_interval_number_box.text = item['interval']#load the interval
+    #if the itme value is True it will trigger if, therefore the user's clock has click on the button
+    if item['am']:#if the key is True, it means the user click the am button
       self.am_key = True
       self.time_button_am.role = "filled-button"
-    if item['pm']:
+    if item['pm']:#if the key is True, it means the user click the pm button
       self.pm_key = True
       self.time_button_pm.role = "filled-button"
-    if item['mon']:
+    if item['mon']:#if the key is True, it means the user click the mon button
       self.days_mon_button.role = "filled-button"
       self.mon_key = True
-    if item['tue']:
+    if item['tue']:#if the key is True, it means the user click the tue button
       self.days_tue_button.role = "filled-button"
       self.tue_key = True
-    if item['wed']:
+    if item['wed']:#if the key is True, it means the user click the wed button
       self.days_wed_button.role = "filled-button"
       self.wed_key = True
-    if item['thu']:
+    if item['thu']:#if the key is True, it means the user click the thu button
       self.days_thu_button.role = "filled-button"
       self.thu_key = True
-    if item['fri']:
+    if item['fri']:#if the key is True, it means the user click the fri button
       self.days_fri_button.role = "filled-button"
       self.fri_key = True
-    if item['sat']:
+    if item['sat']:#if the key is True, it means the user click the sat button
       self.days_sat_button.role = "filled-button"
       self.sat_key = True
-    if item['sun']:
+    if item['sun']:#if the key is True, it means the user click the sun button
       self.days_sun_button.role = "filled-button"
       self.sun_key = True
 
-    self.editing_clock = item['clock_name']
+    self.editing_clock = item['clock_name']#get the row by using the name
     self.row_to_edit = app_tables.clock.get(clock_name= self.editing_clock)
 
   def Cancle_button_click(    self, **event_args  ):  # cancel the creating of the clock and go back to home page
@@ -159,6 +161,14 @@ class clock_edit_page(clock_edit_pageTemplate):
       Notification("Whoops! This wasn't a whole number").show()
       self.alarm_interval_number_box.text = ""
 
+  
+  """
+  If the button is click,set the key to True, and the role to filled-button, so the color of the button will change.
+  The key will tell the server if the button is clicked or not.
+  If the button is clicked and then the user clicked one more time, the key will change to False, and the role to elevated-button so the user know that the button is off
+  Becasue I use am and pm as the time, there can only be am or be pm, so when the user click on am, it will change the key and the role of the pm, and so on. 
+  """
+  
   def time_bottn_am_click(self, **event_args):  # time am
     if self.time_button_am.role == "elevated-button":
       self.time_button_am.role = "filled-button"
@@ -237,6 +247,7 @@ class clock_edit_page(clock_edit_pageTemplate):
       ).show()  # tell the user to fill in the name of the clock
 
   def clock_save_button_click(    self, **event_args  ):  # stone all the information of the clock, and send it to the server
+    #check if any of those box is not filled, or if the am or pm button is not clicked
     if self.time_number_hour_box.text == "":  # if the user didn't type in the hour
       Notification("please fill in the hour").show()  # tell the user to fill in
     elif (
@@ -254,8 +265,8 @@ class clock_edit_page(clock_edit_pageTemplate):
     if self.am_key or self.pm_key:
       pass
     else:
-      self.fill_in_key = False
-      Notification("please chose am or pm").show()
+      self.fill_in_key = False#the user need to fill in the value of the box
+      Notification("please chose am or pm").show()#tell the user
     if (
       self.mon_key
       or self.tue_key
@@ -264,13 +275,14 @@ class clock_edit_page(clock_edit_pageTemplate):
       or self.fri_key
       or self.sat_key
       or self.sun_key
-    ):
+    ):#if one of the day data is filled
       pass
     else:
-      self.fill_in_key = False
-      Notification("please chonse the day").show()
+      self.fill_in_key = False#the user need to click one of the day button
+      Notification("please chonse the day").show()#tell the user
 
-    if self.fill_in_key:
+    if self.fill_in_key:#if the value is true, it means that the user has fill in all the text box, the am/pm button and one or more day button
+      #store all the data 
       time_hour = int(self.time_number_hour_box.text)
       time_minute = int(self.time_number_minute_box.text)
       number_cycle = int(self.write_cycle_number_box.text)
@@ -285,6 +297,7 @@ class clock_edit_page(clock_edit_pageTemplate):
       weekend_sat = self.sat_key
       weekend_sun = self.sun_key
       clock_names = str(self.name_box.text)
+      #send all the data to the server
       self.row_to_edit.update(clock_name=clock_names, hour=time_hour, minute=time_minute, cycle=number_cycle, interval=number_interval, am=button_am, pm=button_pm, mon=weekend_mon, tue=weekend_tue, wed=weekend_wed, thu=weekend_thu, fri=weekend_fri, sat=weekend_sat, sun=weekend_sun)
       Notification("Alarm Clock Set").show()
       open_form("home_page")

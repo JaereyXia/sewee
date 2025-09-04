@@ -22,3 +22,4 @@ class loading_page(loading_pageTemplate):
 
   def button_1_click(self, **event_args):#if the user stack on the loading screen, they can report the question to feedback form
     open_form('feedback_form')
+    

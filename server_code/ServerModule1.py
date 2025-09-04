@@ -28,7 +28,7 @@ def add_feedback(name, email, feedback):
   Feedback:
   {feedback}
   """)
-@anvil.server.callable
+@anvil.server.callable#All the data in the clock form will store and goes in here, and when trigger add a new row to the data
 def add_clock(clock_names, users, time_hour, time_minute, number_cycle, number_interval, button_am, button_pm, weekend_mon, weekend_tue, weekend_wed, weekend_thu, weekend_fri, weekend_sat, weekend_sun):
   app_tables.clock.add_row(
     hour = time_hour,
@@ -46,9 +46,9 @@ def add_clock(clock_names, users, time_hour, time_minute, number_cycle, number_i
     sun = weekend_sun,
     user = users,
     clock_name = clock_names
-  )
+  )#add all the data to the row
   
 @anvil.server.callable
 def update_movie(clock, clock_data):
   if clock_data['clock_name'] and clock_data['hour'] and clock_data['minute'] and clock_data['cycle'] and clock_data['interval']:
-    clock.update(**clock_data)
+    clock.update(**clock_data)#updata the current row so the edit can be saved
