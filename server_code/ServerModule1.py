@@ -49,6 +49,6 @@ def add_clock(clock_names, users, time_hour, time_minute, number_cycle, number_i
   )
   
 @anvil.server.callable
-def update_movie(movie, clock_data):
-  if clock_data['name'] and clock_data['hour'] and clock_data['minute'] and clock_data['cycle'] and clock_data['interval']:
+def update_movie(clock, clock_data):
+  if clock_data['clock_name'] and clock_data['hour'] and clock_data['minute'] and clock_data['cycle'] and clock_data['interval']:
     clock.update(**clock_data)

@@ -11,8 +11,8 @@ from anvil.tables import app_tables
 
 
 class clock_edit_page(clock_edit_pageTemplate):
-  def __init__(self, edit_data_item, **properties):
-    
+  def __init__(self, item, **properties):
+
     self.init_components(**properties)
     # Any code you write here will run before the form opens.
     self.am_key = False  # If the key is True, it means the user click the am button
@@ -26,34 +26,46 @@ class clock_edit_page(clock_edit_pageTemplate):
     self.sun_key = False  # If the key is True, it means the user click the sun button
     self.fill_in_key = False  # If the key is True, it means the user fill in all information of the clock. eg hour,minute...
 
-    if edit_data_item[0]:
+    self.name_box.text = item['clock_name']
+    self.time_number_hour_box.text = item['hour']
+    self.time_number_minute_box.text = item['minute']
+    self.write_cycle_number_box.text = item['cycle']
+    self.alarm_interval_number_box.text = item['interval']
+    if item['am']:
       self.am_key = True
-    if edit_data_item[1]:
+      self.time_button_am.role = "filled-button"
+    if item['pm']:
       self.pm_key = True
-    if edit_data_item[2]:
-      self.pm_key = True
-    if edit_data_item[3]:
-      self.pm_key = True
-    if edit_data_item[4]:
-      self.pm_key = True
-    if edit_data_item[5]:
-      self.pm_key = True
-    if edit_data_item[6]:
-      self.pm_key = True
-    if edit_data_item[7]:
-      self.pm_key = True
-  
+      self.time_button_pm.role = "filled-button"
+    if item['mon']:
+      self.days_mon_button.role = "filled-button"
+      self.mon_key = True
+    if item['tue']:
+      self.days_tue_button.role = "filled-button"
+      self.tue_key = True
+    if item['wed']:
+      self.days_wed_button.role = "filled-button"
+      self.wed_key = True
+    if item['thu']:
+      self.days_thu_button.role = "filled-button"
+      self.thu_key = True
+    if item['fri']:
+      self.days_fri_button.role = "filled-button"
+      self.fri_key = True
+    if item['sat']:
+      self.days_sat_button.role = "filled-button"
+      self.sat_key = True
+    if item['sun']:
+      self.days_sun_button.role = "filled-button"
+      self.sun_key = True
 
+    self.editing_clock = item['clock_name']
+    self.row_to_edit = app_tables.clock.get(clock_name= self.editing_clock)
 
-  
-  def Cancle_button_click(
-    self, **event_args
-  ):  # cancel the creating of the clock and go back to home page
+  def Cancle_button_click(    self, **event_args  ):  # cancel the creating of the clock and go back to home page
     open_form("home_page")
 
-  def time_number_hour_box_pressed_enter(
-    self, **event_args
-  ):  # If the user enter a wrong time, it will detect and tell the user
+  def time_number_hour_box_pressed_enter(    self, **event_args  ):  # If the user enter a wrong time, it will detect and tell the user
     try:  # If the time was over 12hour or less then 1 hour, the app will send a notification telling the user
       if (
         float(int(self.time_number_hour_box.text)) > 12
@@ -64,7 +76,6 @@ class clock_edit_page(clock_edit_pageTemplate):
     except ValueError:
       Notification("Whoops! This wasn't a whole number").show()
       self.time_number_hour_box.text = ""
-
   def time_number_hour_box_lost_focus(self, **event_args):
     try:  # If the time was over 12hour or less then 1 hour, the app will send a notification telling the user
       if (
@@ -77,9 +88,7 @@ class clock_edit_page(clock_edit_pageTemplate):
       Notification("Whoops! This wasn't a whole number").show()
       self.time_number_hour_box.text = ""
 
-  def time_number_minute_box_pressed_enter(
-    self, **event_args
-  ):  # If the user enter a wrong time, it will detect and tell the user
+  def time_number_minute_box_pressed_enter(    self, **event_args  ):  # If the user enter a wrong time, it will detect and tell the user
     try:  # if the time was over 59 minute that means it's 1 hour, or if the time is less then 1 minute, the app will tell the user
       if (
         int(self.time_number_minute_box.text) > 59
@@ -92,7 +101,6 @@ class clock_edit_page(clock_edit_pageTemplate):
     except ValueError:
       Notification("Whoops! This wasn't a whole number").show()
       self.time_number_minute_box.text = ""
-
   def time_number_minute_box_lost_focus(self, **event_args):
     try:  # if the time was over 59 minute that means it's 1 hour, or if the time is less then 1 minute, the app will tell the user
       if (
@@ -105,9 +113,7 @@ class clock_edit_page(clock_edit_pageTemplate):
       Notification("Whoops! This wasn't a whole number").show()
       self.time_number_minute_box.text = ""
 
-  def write_cycle_number_box_pressed_enter(
-    self, **event_args
-  ):  # If the user enter a wrong number, it will detect and tell the user
+  def write_cycle_number_box_pressed_enter(    self, **event_args  ):  # If the user enter a wrong number, it will detect and tell the user
     try:  # if the number was over the 20 maximum, or if the time is less then 1 minimum, the app will tell the user
       if (
         int(self.write_cycle_number_box.text) > 20
@@ -118,7 +124,6 @@ class clock_edit_page(clock_edit_pageTemplate):
     except ValueError:
       Notification("Whoops! This wasn't a whole number").show()
       self.write_cycle_number_box.text = ""
-
   def write_cycle_number_box_lost_focus(self, **event_args):
     try:  # if the number was over the 20 maximum, or if the time is less then 1 minimum, the app will tell the user
       if (
@@ -131,9 +136,7 @@ class clock_edit_page(clock_edit_pageTemplate):
       Notification("Whoops! This wasn't a whole number").show()
       self.write_cycle_number_box.text = ""
 
-  def alarm_interval_number_box_pressed_enter(
-    self, **event_args
-  ):  # If the user enter a wrong number, it will detect and tell the user
+  def alarm_interval_number_box_pressed_enter(    self, **event_args  ):  # If the user enter a wrong number, it will detect and tell the user
     try:  # if the time was over 10 minute the maximum, or if the time is less then 1 minute the mimimum, the app will tell the user
       if (
         int(self.alarm_interval_number_box.text) > 10
@@ -144,7 +147,6 @@ class clock_edit_page(clock_edit_pageTemplate):
     except ValueError:
       Notification("Whoops! This wasn't a whole number").show()
       self.alarm_interval_number_box.text = ""
-
   def alarm_interval_number_box_lost_focus(self, **event_args):
     try:  # if the time was over 10 minute the maximum, or if the time is less then 1 minute the mimimum, the app will tell the user
       if (
@@ -167,7 +169,6 @@ class clock_edit_page(clock_edit_pageTemplate):
     else:
       self.time_button_am.role = "elevated-button"
       self.am_key = False
-
   def time_pm_button_click(self, **event_args):  # time pm
     if self.time_button_pm.role == "elevated-button":
       self.time_button_pm.role = "filled-button"
@@ -186,7 +187,6 @@ class clock_edit_page(clock_edit_pageTemplate):
     else:
       self.days_mon_button.role = "elevated-button"
       self.mon_key = False
-
   def days_tue_button_click(self, **event_args):  # weekend
     if self.days_tue_button.role == "elevated-button":
       self.days_tue_button.role = "filled-button"
@@ -194,7 +194,6 @@ class clock_edit_page(clock_edit_pageTemplate):
     else:
       self.days_tue_button.role = "elevated-button"
       self.tue_key = False
-
   def days_wed_button_click(self, **event_args):  # weekend
     if self.days_wed_button.role == "elevated-button":
       self.days_wed_button.role = "filled-button"
@@ -202,7 +201,6 @@ class clock_edit_page(clock_edit_pageTemplate):
     else:
       self.days_wed_button.role = "elevated-button"
       self.wed_key = False
-
   def days_thu_button_click(self, **event_args):  # weekend
     if self.days_thu_button.role == "elevated-button":
       self.days_thu_button.role = "filled-button"
@@ -210,7 +208,6 @@ class clock_edit_page(clock_edit_pageTemplate):
     else:
       self.days_thu_button.role = "elevated-button"
       self.thu_key = False
-
   def days_fri_button_click(self, **event_args):  # weekend
     if self.days_fri_button.role == "elevated-button":
       self.days_fri_button.role = "filled-button"
@@ -218,7 +215,6 @@ class clock_edit_page(clock_edit_pageTemplate):
     else:
       self.days_fri_button.role = "elevated-button"
       self.fri_key = False
-
   def days_sat_button_click(self, **event_args):  # weekend
     if self.days_sat_button.role == "elevated-button":
       self.days_sat_button.role = "filled-button"
@@ -226,7 +222,6 @@ class clock_edit_page(clock_edit_pageTemplate):
     else:
       self.days_sat_button.role = "elevated-button"
       self.sat_key = False
-
   def days_sun_button_click(self, **event_args):  # weekend
     if self.days_sun_button.role == "elevated-button":
       self.days_sun_button.role = "filled-button"
@@ -234,16 +229,14 @@ class clock_edit_page(clock_edit_pageTemplate):
     else:
       self.days_sun_button.role = "elevated-button"
       self.sun_key = False
-
+      
   def name_box_lost_focus(self, **event_args):
     if self.name_box.text == "":  # if the user didn't type in the name
       Notification(
         "please fill in the name"
       ).show()  # tell the user to fill in the name of the clock
 
-  def clock_save_button_click(
-    self, **event_args
-  ):  # stone all the information of the clock, and send it to the server
+  def clock_save_button_click(    self, **event_args  ):  # stone all the information of the clock, and send it to the server
     if self.time_number_hour_box.text == "":  # if the user didn't type in the hour
       Notification("please fill in the hour").show()  # tell the user to fill in
     elif (
@@ -278,7 +271,21 @@ class clock_edit_page(clock_edit_pageTemplate):
       Notification("please chonse the day").show()
 
     if self.fill_in_key:
-      pass
+      time_hour = int(self.time_number_hour_box.text)
+      time_minute = int(self.time_number_minute_box.text)
+      number_cycle = int(self.write_cycle_number_box.text)
+      number_interval = int(self.alarm_interval_number_box.text)
+      button_am = self.am_key
+      button_pm = self.pm_key
+      weekend_mon = self.mon_key
+      weekend_tue = self.tue_key
+      weekend_wed = self.wed_key
+      weekend_thu = self.thu_key
+      weekend_fri = self.fri_key
+      weekend_sat = self.sat_key
+      weekend_sun = self.sun_key
+      clock_names = str(self.name_box.text)
+      self.row_to_edit.update(clock_name=clock_names, hour=time_hour, minute=time_minute, cycle=number_cycle, interval=number_interval, am=button_am, pm=button_pm, mon=weekend_mon, tue=weekend_tue, wed=weekend_wed, thu=weekend_thu, fri=weekend_fri, sat=weekend_sat, sun=weekend_sun)
       Notification("Alarm Clock Set").show()
       open_form("home_page")
     else:
