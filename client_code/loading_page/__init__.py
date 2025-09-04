@@ -15,21 +15,10 @@ class loading_page(loading_pageTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)  
     # Any code you write here will run before the form opens.
-    anvil.users.login_with_form()#user login
-    
-
-  
+    anvil.users.login_with_form()#user login  
 
   def timer_1_tick(self, **event_args):#after 5 sec, the user will open the app.
     open_form('home_page')
 
   def button_1_click(self, **event_args):#if the user stack on the loading screen, they can report the question to feedback form
     open_form('feedback_form')
-
-  
-    
-  
-
-
-
-    

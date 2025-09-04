@@ -175,6 +175,13 @@ class clock_page(clock_pageTemplate):
       self.days_sun_button.role = 'elevated-button'
       self.sun_key = False
 
+
+  def name_box_lost_focus(self, **event_args):
+    if self.name_box.text == "":#if the user didn't type in the name
+      Notification("please fill in the name").show()#tell the user to fill in
+
+
+  
   def clock_save_button_click(self, **event_args):#stone all the information of the clock, and send it to the server
     if self.time_number_hour_box.text == "":#if the user didn't type in the hour
       Notification("please fill in the hour").show()#tell the user to fill in
@@ -196,7 +203,7 @@ class clock_page(clock_pageTemplate):
     else:
       self.fill_in_key = False
       Notification("please chonse the day").show()
-
+    
     
     if self.fill_in_key:
       user = anvil.users.get_user()#Get the gmail of the user for identity check
@@ -214,41 +221,9 @@ class clock_page(clock_pageTemplate):
       weekend_sat = self.sat_key
       weekend_sun = self.sun_key
       users = user['email']
-      anvil.server.call('add_clock', users, time_hour, time_minute, number_cycle, number_interval, button_am, button_pm, weekend_mon, weekend_tue, weekend_wed, weekend_thu, weekend_fri, weekend_sat, weekend_sun)
+      names = self.name_box
+      anvil.server.call('add_clock', names, users, time_hour, time_minute, number_cycle, number_interval, button_am, button_pm, weekend_mon, weekend_tue, weekend_wed, weekend_thu, weekend_fri, weekend_sat, weekend_sun)
       Notification("Alarm Clock Set").show()
       open_form('home_page')
     else:
       pass
-
-  def name_text_box_lost_focus(self, **event_args):
-    taked_name = app_tables.clock.search(name = self.name_text_box)
-    print(f"{taked_name}")
-    if self.name_text_box.text == "":
-      Notification("Can't send blank feedback form, please check the name box again").show()
-    elif taked_name != "":
-      Notification("This name has been taken")
-      self.name_text_box.text = ""
-
-
-
-
-
-
-
-
-    
-    
-
-
-
-
-
-
-
-    
-
-
-
-  
-    
-  

@@ -35,12 +35,13 @@ class home_page(home_pageTemplate):
   
       
   def add_clock_botton_click(self, **event_args):#open clock opage
-    item = {}
-    clock_edit = clock_edit_page(item=item)
     open_form('clock_page')
   
   def feedback_button_click(self, **event_args):#open feedback form 
     open_form('feedback_form')
 
+
+  def edit_button_click(self, **event_args):
+    open_form('clock_edit_page')
 
 

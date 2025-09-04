@@ -1,13 +1,13 @@
 components:
 - components:
   - components:
-    - layout_properties: {grid_position: 'NHMGOI,AALUHU'}
+    - layout_properties: {grid_position: 'CFVKFD,RHCJSR'}
       name: label_1
-      properties: {text: 'Name of the alarm clock:'}
+      properties: {align: right, text: 'Name:'}
       type: Label
-    - event_bindings: {lost_focus: name_text_box_lost_focus}
-      layout_properties: {grid_position: 'NHMGOI,ISHWAD'}
-      name: name_text_box
+    - event_bindings: {lost_focus: name_box_lost_focus}
+      layout_properties: {grid_position: 'CFVKFD,VWNQRD'}
+      name: name_box
       properties: {}
       type: TextBox
     - layout_properties: {grid_position: 'DAEJNS,ISDEBJ'}
@@ -109,7 +109,7 @@ components:
       type: Button
     layout_properties: {grid_position: 'VLLMDP,DMDNUB'}
     name: outlined_card_1
-    properties: {col_widths: '{"ISDEBJ":10,"BGFYOD":10,"VOYKAM":27,"QARLJY":15,"GVGWHB":25,"QEVUMX":35,"QDGFZO":25,"VAZSFC":35,"WOLBZV":10,"AALUHU":15,"ISHWAD":45}', role: outlined-card}
+    properties: {col_widths: '{"ISDEBJ":10,"BGFYOD":10,"VOYKAM":27,"QARLJY":15,"GVGWHB":25,"QEVUMX":35,"QDGFZO":25,"VAZSFC":35,"WOLBZV":10,"RHCJSR":20,"VWNQRD":40}', role: outlined-card}
     type: ColumnPanel
   layout_properties: {slot: default}
   name: content_panel

@@ -1,22 +1,25 @@
 components:
 - components:
-  - data_bindings: []
+  - event_bindings: {click: delete_clock_click}
     layout_properties: {}
-    name: edit_row
-    properties: {icon: 'fa:pencil', role: elevated-button, text: ''}
-    type: Button
-  layout_properties: {column: VUVPVS}
-  name: edit_clock
-  properties: {}
-  type: FlowPanel
-- components:
-  - layout_properties: {}
     name: delete_clock
-    properties: {icon: '', text: ''}
+    properties: {icon: 'fa:trash', role: elevated-button, text: ''}
     type: Button
   layout_properties: {column: OTMPFP}
   name: flow_panel_1
   properties: {}
   type: FlowPanel
-container: {type: DataRowPanel}
+- components:
+  - event_bindings: {click: edit_button_click}
+    layout_properties: {}
+    name: edit_button
+    properties: {icon: 'fa:pencil', role: elevated-button, text: ''}
+    type: Button
+  layout_properties: {column: VUVPVS}
+  name: flow_panel_2
+  properties: {}
+  type: FlowPanel
+container:
+  properties: {role: null}
+  type: DataRowPanel
 is_package: true
