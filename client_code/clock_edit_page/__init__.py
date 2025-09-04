@@ -9,9 +9,13 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 
+
 class clock_edit_page(clock_edit_pageTemplate):
-  def __init__(self, **properties):
+  def __init__(self, edit_data_item, **properties):
     # Set Form properties and Data Bi ndings.
+    #print(f'{edit_data_item}')#Testing
+
+    
     self.init_components(**properties)
     # Any code you write here will run before the form opens.
     self.am_key = False  # If the key is True, it means the user click the am button
@@ -25,6 +29,26 @@ class clock_edit_page(clock_edit_pageTemplate):
     self.sun_key = False  # If the key is True, it means the user click the sun button
     self.fill_in_key = False  # If the key is True, it means the user fill in all information of the clock. eg hour,minute...
 
+    if edit_data_item[0]:
+      self.am_key = True
+    if edit_data_item[1]:
+      self.pm_key = True
+    if edit_data_item[2]:
+      self.pm_key = True
+    if edit_data_item[3]:
+      self.pm_key = True
+    if edit_data_item[4]:
+      self.pm_key = True
+    if edit_data_item[5]:
+      self.pm_key = True
+    if edit_data_item[6]:
+      self.pm_key = True
+    if edit_data_item[7]:
+      self.pm_key = True
+  
+
+
+  
   def Cancle_button_click(
     self, **event_args
   ):  # cancel the creating of the clock and go back to home page
@@ -79,9 +103,7 @@ class clock_edit_page(clock_edit_pageTemplate):
         or int(self.time_number_minute_box.text) < 0
       ):
         self.time_number_minute_box.text = ""
-        Notification(
-          "Wrong number, please enter a value of less than 60 minutes"
-        ).show()
+        Notification("Wrong number, please enter a value less than 60 minutes").show()
     except ValueError:
       Notification("Whoops! This wasn't a whole number").show()
       self.time_number_minute_box.text = ""
@@ -216,6 +238,12 @@ class clock_edit_page(clock_edit_pageTemplate):
       self.days_sun_button.role = "elevated-button"
       self.sun_key = False
 
+  def name_box_lost_focus(self, **event_args):
+    if self.name_box.text == "":  # if the user didn't type in the name
+      Notification(
+        "please fill in the name"
+      ).show()  # tell the user to fill in the name of the clock
+
   def clock_save_button_click(
     self, **event_args
   ):  # stone all the information of the clock, and send it to the server
@@ -253,38 +281,7 @@ class clock_edit_page(clock_edit_pageTemplate):
       Notification("please chonse the day").show()
 
     if self.fill_in_key:
-      user = anvil.users.get_user()  # Get the gmail of the user for identity check
-      time_hour = int(self.time_number_hour_box.text)
-      time_minute = int(self.time_number_minute_box.text)
-      number_cycle = int(self.write_cycle_number_box.text)
-      number_interval = int(self.alarm_interval_number_box.text)
-      button_am = self.am_key
-      button_pm = self.pm_key
-      weekend_mon = self.mon_key
-      weekend_tue = self.tue_key
-      weekend_wed = self.wed_key
-      weekend_thu = self.thu_key
-      weekend_fri = self.fri_key
-      weekend_sat = self.sat_key
-      weekend_sun = self.sun_key
-      users = user["email"]
-      anvil.server.call(
-        "add_clock",
-        users,
-        time_hour,
-        time_minute,
-        number_cycle,
-        number_interval,
-        button_am,
-        button_pm,
-        weekend_mon,
-        weekend_tue,
-        weekend_wed,
-        weekend_thu,
-        weekend_fri,
-        weekend_sat,
-        weekend_sun,
-      )
+      pass
       Notification("Alarm Clock Set").show()
       open_form("home_page")
     else:

@@ -178,9 +178,9 @@ class clock_page(clock_pageTemplate):
 
   def name_box_lost_focus(self, **event_args):
     if self.name_box.text == "":#if the user didn't type in the name
-      Notification("please fill in the name").show()#tell the user to fill in
+      Notification("please fill in the name").show()#tell the user to fill in the name of the clock
 
-
+    
   
   def clock_save_button_click(self, **event_args):#stone all the information of the clock, and send it to the server
     if self.time_number_hour_box.text == "":#if the user didn't type in the hour
@@ -221,13 +221,10 @@ class clock_page(clock_pageTemplate):
       weekend_sat = self.sat_key
       weekend_sun = self.sun_key
       users = user['email']
-      names = str(self.name_box)
-      anvil.server.call('add_clock', names, users, time_hour, time_minute, number_cycle, number_interval, button_am, button_pm, weekend_mon, weekend_tue, weekend_wed, weekend_thu, weekend_fri, weekend_sat, weekend_sun)
+      clock_names = str(self.name_box.text)
+      anvil.server.call('add_clock', clock_names, users, time_hour, time_minute, number_cycle, number_interval, button_am, button_pm, weekend_mon, weekend_tue, weekend_wed, weekend_thu, weekend_fri, weekend_sat, weekend_sun)
       Notification("Alarm Clock Set").show()
       open_form('home_page')
     else:
       pass
 
-  def name_box_pressed_enter(self, **event_args):
-    """This method is called when the user presses Enter in this text box"""
-    pass

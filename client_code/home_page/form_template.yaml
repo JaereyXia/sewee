@@ -14,7 +14,7 @@ components:
       name: data_grid_1
       properties:
         columns:
-        - {data_key: name, id: BXXDCX, title: name}
+        - {data_key: clock_name, id: BXXDCX, title: name}
         - {data_key: hour, id: JKSDUP, title: hour}
         - {data_key: minute, id: VJQQOR, title: minute}
         - {data_key: column_1, id: VUVPVS, title: edit}

@@ -46,7 +46,7 @@ db_schema:
       name: user
       type: string
     - admin_ui: {order: 13, width: 200}
-      name: name
+      name: clock_name
       type: string
     server: full
     title: clock

@@ -15,14 +15,22 @@ class RowTemplate2(RowTemplate2Template):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
-
+  
   def delete_clock_click(self, **event_args):
-    if confirm(f'Do you want to delete this clock?'):
+    if confirm(f'Do you want to delete this clock?'):#ask the user to confirm the question, eiher yes or cancle
       # self.item refers to the current row in the repeating panel
+
       self.item.delete()
+
       # Optionally, remove the item from the repeating panel display
       self.remove_from_parent()
       #tell the user the delete is done
-      Notification("clock deleted").show() 
+      Notification("clock deleted").show()#tell the user the clock is deleted
+
+  def edit_button_click(self, **event_args):
+    print(f'{self.item[]}')#Testing
+    open_form('clock_edit_page',self.item)
+    
+  
       
 
