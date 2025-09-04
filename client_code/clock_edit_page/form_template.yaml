@@ -5,12 +5,16 @@ components:
       name: time_label
       properties: {align: right, text: 'Time:'}
       type: Label
-    - event_bindings: {lost_focus: time_number_hour_box_lost_focus, pressed_enter: time_number_hour_box_pressed_enter}
+    - data_bindings:
+      - {code: 'self.item[''hour'']', property: text, writeback: true}
+      event_bindings: {lost_focus: time_number_hour_box_lost_focus, pressed_enter: time_number_hour_box_pressed_enter}
       layout_properties: {grid_position: 'DAEJNS,BGFYOD'}
       name: time_number_hour_box
       properties: {align: left, placeholder: Hour}
       type: TextBox
-    - event_bindings: {lost_focus: time_number_minute_box_lost_focus, pressed_enter: time_number_minute_box_pressed_enter}
+    - data_bindings:
+      - {code: 'self.item[''minute'']', property: text, writeback: true}
+      event_bindings: {lost_focus: time_number_minute_box_lost_focus, pressed_enter: time_number_minute_box_pressed_enter}
       layout_properties: {grid_position: 'DAEJNS,WOLBZV'}
       name: time_number_minute_box
       properties: {placeholder: Minute}
@@ -74,7 +78,9 @@ components:
           Cycle:
         visible: true
       type: Label
-    - event_bindings: {lost_focus: write_cycle_number_box_lost_focus, pressed_enter: write_cycle_number_box_pressed_enter}
+    - data_bindings:
+      - {code: 'self.item[''cycle'']', property: text, writeback: true}
+      event_bindings: {lost_focus: write_cycle_number_box_lost_focus, pressed_enter: write_cycle_number_box_pressed_enter}
       layout_properties: {grid_position: 'TOQUOE,QEVUMX'}
       name: write_cycle_number_box
       properties: {placeholder: Type how many cycles you want, text: ''}
@@ -83,7 +89,9 @@ components:
       name: alarm_interval_label
       properties: {align: right, text: 'Alarm interval(min):'}
       type: Label
-    - event_bindings: {lost_focus: alarm_interval_number_box_lost_focus, pressed_enter: alarm_interval_number_box_pressed_enter}
+    - data_bindings:
+      - {code: 'self.item[''interval'']', property: text, writeback: true}
+      event_bindings: {lost_focus: alarm_interval_number_box_lost_focus, pressed_enter: alarm_interval_number_box_pressed_enter}
       layout_properties: {grid_position: 'IMEVHO,VAZSFC'}
       name: alarm_interval_number_box
       properties: {placeholder: How many min before the alarm ring agian, text: ''}

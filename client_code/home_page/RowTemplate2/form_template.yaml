@@ -2,7 +2,7 @@ components:
 - components:
   - data_bindings: []
     layout_properties: {}
-    name: button_1
+    name: edit_row
     properties: {icon: 'fa:pencil', role: elevated-button, text: ''}
     type: Button
   layout_properties: {column: VUVPVS}

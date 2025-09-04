@@ -9,6 +9,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 
+
 class clock_page(clock_pageTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bi ndings.
@@ -218,6 +219,15 @@ class clock_page(clock_pageTemplate):
       open_form('home_page')
     else:
       pass
+
+  def name_text_box_lost_focus(self, **event_args):
+    taked_name = app_tables.clock.search(name = self.name_text_box)
+    print(f"{taked_name}")
+    if self.name_text_box.text == "":
+      Notification("Can't send blank feedback form, please check the name box again").show()
+    elif taked_name != "":
+      Notification("This name has been taken")
+      self.name_text_box.text = ""
 
 
 

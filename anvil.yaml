@@ -1,7 +1,7 @@
 allow_embedding: false
 db_schema:
   clock:
-    client: full
+    client: search
     columns:
     - admin_ui: {order: 0, width: 200}
       name: hour
@@ -44,6 +44,9 @@ db_schema:
       type: number
     - admin_ui: {order: -1, width: 200}
       name: user
+      type: string
+    - admin_ui: {order: 13, width: 200}
+      name: name
       type: string
     server: full
     title: clock

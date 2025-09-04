@@ -16,6 +16,7 @@ class loading_page(loading_pageTemplate):
     self.init_components(**properties)  
     # Any code you write here will run before the form opens.
     anvil.users.login_with_form()#user login
+    
 
   
 

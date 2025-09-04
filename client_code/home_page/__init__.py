@@ -20,12 +20,27 @@ class home_page(home_pageTemplate):
     users_data = anvil.users.get_user()#Get the gmail of the user for identity check
     self.repeating_panel_1.items = app_tables.clock.search(user=users_data['email'])#use the users_data to find which user is using this app, then give them they clock
 
-      
+
+  def edit_clock(self, user, **event_args):
+    #movie is the row from the Data Table
+    item = dict(user)
+    clock_edit = clock_edit_page(item=item)
+
+    #if the user clicks OK on the alert
+    if alert(content=clock_edit_page(), large=True):
+      #pass in the Data Table row and the updated info
+      anvil.server.call('update_clock', clock, item)
+      #refresh the Data Grid
+      self.repeating_panel_1.items = app_tables.clock.search()
+  
       
   def add_clock_botton_click(self, **event_args):#open clock opage
+    item = {}
+    clock_edit = clock_edit_page(item=item)
     open_form('clock_page')
   
   def feedback_button_click(self, **event_args):#open feedback form 
     open_form('feedback_form')
+
 
 
